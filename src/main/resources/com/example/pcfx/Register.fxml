@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox xmlns ="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.pcfx.RegisterController"
+      alignment="CENTER" spacing="10">
+
+    <Text text="Crear Cuenta" style="-fx-font-size: 24"/>
+
+    <TextField fx:id="emailField" promptText="Email"/>
+
+    <PasswordField fx:id="passwordField" promptText="Password"/>
+    <PasswordField fx:id="confirmPasswordField" promptText="Confirma Password"/>
+
+    <Button text="Crear cuenta" onAction="#handleRegisterButtonAction"/>
+
+    <Text fx:id="registerMessage" fill="red"/>
+
+    <Button text="Volver al Login" onAction="#handleBackToLoginAction"/>
+</VBox>
