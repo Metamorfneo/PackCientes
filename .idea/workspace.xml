@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82fffed0-edcd-461f-8d1d-23cfdb42bebf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pcfx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pcfx/hello-view.fxml" afterDir="false" />
+    <list default="true" id="82fffed0-edcd-461f-8d1d-23cfdb42bebf" name="Changes" comment="Creamos el fxml de Register">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,16 +35,23 @@
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2mNBquyZvv2fPIs66jaoiX6IFLe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -57,10 +72,71 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726907348420</updated>
+      <workItem from="1726907349457" duration="3662000" />
     </task>
+    <task id="LOCAL-00001" summary="Seteamos la Main">
+      <option name="closed" value="true" />
+      <created>1726907573461</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726907573461</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Creamos el Controlador del login">
+      <option name="closed" value="true" />
+      <created>1726908308770</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726908308770</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Creamos el controlador de Registro">
+      <option name="closed" value="true" />
+      <created>1726908712233</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726908712233</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Creamos el fxml de Login">
+      <option name="closed" value="true" />
+      <created>1726909137973</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726909137973</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Creamos el fxml de Register">
+      <option name="closed" value="true" />
+      <created>1726909576592</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726909576592</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Seteamos la Main" />
+    <MESSAGE value="Creamos el Controlador del login" />
+    <MESSAGE value="Creamos el controlador de Registro" />
+    <MESSAGE value="Creamos el fxml de Login" />
+    <MESSAGE value="Creamos el fxml de Register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creamos el fxml de Register" />
   </component>
 </project>

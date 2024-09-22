@@ -10,6 +10,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.nio.charset.StandardCharsets;
 
 public class LoginController {
 
@@ -27,14 +30,27 @@ public class LoginController {
     protected void handleLoginButtonAction(ActionEvent event) {
         String email = emailField.getText();
         String password = passwordField.getText();
-
-        //Validacion a insertar mas tarde corroborando con la base de datos
-        if (email.equals("sblazquez2002@gmail.com") && password.equals("123456")) {
-            loginMessage.setText("Sesion Iniciada");
-            loadMainScreen();
-        }else {
-            loginMessage.setText("Contraseña o correo Incorrecto");
+        try{
+            String result = loginRequest(email , password);
+            if ("Login Successful".equalsIgnoreCase(result)) {
+                loginMessage.setText("Login Successful");
+                loadMainScreen();
+            }else {
+                loginMessage.setText("Login Failed");
+            }
+        }catch (Exception e){
+            loginMessage.setText("Error" + e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    private String loginRequest(String email, String password) throws Exception{
+        //Preparamos el HTTP cliente
+        HttpClient client = HttpClient.newHttpClient();
+        String postData = "email=" + URLEncoder.encode(email , StandardCharsets.UTF_8)
+                + "&password=" + URLEncoder.encode(password , StandardCharsets.UTF_8);
+
+
     }
 
     protected void handleCreateAccountButtonAction(ActionEvent event) throws IOException {
