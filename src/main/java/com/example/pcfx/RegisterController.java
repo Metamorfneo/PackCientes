@@ -10,6 +10,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 public class RegisterController {
 
@@ -31,20 +37,49 @@ public class RegisterController {
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
 
-        if (password.equals(confirmPassword)) {
-            //Luego añadimos la logica para guardar el usuario en la base de datos
-            registerMessage.setText("Usuario creado correctamente");
+        if (!password.equals(confirmPassword)) {
+            registerMessage.setText("Las contraseñas no coinciden.");
+            return;
+        }
+
+        try {
+            String resultado = registerRequest(email , password);
+            if ("Registro Completado".equals(resultado)) {
+                registerMessage.setText("Registro Completado");
+                redirectToLogin();
+            }else {
+                registerMessage.setText("Error al registrar el usuario");
+            }
+        }catch (Exception e) {
+            registerMessage.setText("Error" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private String registerRequest(String email, String password) throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+        String postData = "email=" + URLEncoder.encode(email , StandardCharsets.UTF_8) +
+                "&password=" + URLEncoder.encode(password , StandardCharsets.UTF_8);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/api/auth/register"))
+                .header("Content-Type" , "application/x-www-form-urlencoded")
+                .POST(HttpRequest.BodyPublishers.ofString(postData))
+                .build();
+
+        //mandamos la request
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() == 200) {
+            return "Registro Completado";
         }else {
-            registerMessage.setText("Las contraseñas no coinciden");
+            return "Error al registrar el usuario";
         }
     }
 
     @FXML
     protected void handleBackToLoginAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) emailField.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        redirectToLogin();
     }
 
     private void redirectToLogin(){
