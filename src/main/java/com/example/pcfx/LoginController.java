@@ -10,8 +10,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class LoginController {
@@ -50,7 +53,21 @@ public class LoginController {
         String postData = "email=" + URLEncoder.encode(email , StandardCharsets.UTF_8)
                 + "&password=" + URLEncoder.encode(password , StandardCharsets.UTF_8);
 
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/api/auth/login"))
+                .header("Content-Type" , "application/x-www-form-urlencoded")
+                .POST(HttpRequest.BodyPublishers.ofString(postData))
+                .build();
 
+        //Mandamos la Request
+        HttpResponse<String> response = client.send(request , HttpResponse.BodyHandlers.ofString());
+
+        //Comprobamos la repuesta
+        if (response.statusCode() == 200) {
+            return "Conectado Correctamente";
+        }else {
+            return "Inicio de sesion incorrecto";
+        }
     }
 
     protected void handleCreateAccountButtonAction(ActionEvent event) throws IOException {
@@ -61,7 +78,13 @@ public class LoginController {
     }
 
     private void loadMainScreen() {
-        //Logina para cargar la pagina principal despues de iniciar sesion
-        System.out.println("Cargando Pagina principal");
+        try {
+            Stage stage = (Stage) emailField.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
